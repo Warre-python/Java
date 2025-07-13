@@ -1,35 +1,36 @@
 import java.util.Scanner;
 
-
 public class Prime {
     public static void main(String[] args) {
         System.out.println("Welke int?");
         Scanner scanner = new Scanner(System.in);
-        int lenght = scanner.nextInt();
-        int score = 0;
-        long start = System.currentTimeMillis();
-        for (int i = 1; i <= lenght; i++) {
-            calculatePrime(score, i);
-        }
-        long stop = System.currentTimeMillis();
-        long time = stop - start;
-        System.out.println("In " + time + " milliseconds!");
-        scanner.close();
+        int length = scanner.nextInt();
+        int primeCount = 0;
 
-    }
-    public static boolean calculatePrime(score, i) {
-        for (int x = 1; x <= i; x++) {
-            if (i % x == 0) {
-                ++score;
+        long start = System.currentTimeMillis();
+
+        for (int i = 1; i <= length; i++) {
+            if (isPrime(i)) {
+                primeCount++;
             }
         }
-        if (score == 2) {
-            return true;
-        } else {
-            return false;
+
+        long stop = System.currentTimeMillis();
+        long time = stop - start;
+
+        System.out.println("Found " + primeCount + " prime numbers.");
+        System.out.println("In " + time + " milliseconds!");
+        scanner.close();
+    }
+
+    public static boolean isPrime(int number) {
+        if (number < 2) return false;
+
+        for (int x = 2; x <= Math.sqrt(number); x++) {
+            if (number % x == 0) {
+                return false;
+            }
         }
-        score = 0
-        
-        
+        return true;
     }
 }

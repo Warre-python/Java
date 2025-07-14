@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 
 public class Prime {
-    public static void main(String[] args) {
+    public static void calculatePrimeNumbers(String[] args) {
         System.out.println("Welke int?");
         Scanner scanner = new Scanner(System.in);
         int lenght = scanner.nextInt();
